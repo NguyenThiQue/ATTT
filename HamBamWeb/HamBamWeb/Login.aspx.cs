@@ -209,6 +209,9 @@ namespace HamBamWeb
                     {
                         matrix[i,j] = plaintext[k];
                         k++;
+                    }else{
+                        matrix[i,j] = '_';
+                        k++;
                     }
                     
                 }
@@ -219,11 +222,9 @@ namespace HamBamWeb
             {
                 int column = key[idx] - 1;
                 for (int row = 0; row < numRows; row++)
-                {
-                    
-                    if (matrix[row, column] != ' ')
-                    {
-                        
+                {     
+                    if (matrix[row, column] != '\0')
+                    {       
                         ciphertext.Append(matrix[row, column]);
                     }
                 }
@@ -247,6 +248,9 @@ namespace HamBamWeb
                     {
                         matrix[row, column] = ciphertext[k];
                         k++;
+                    }else{
+                        matrix[i,j] = '_';
+                        k++;
                     }
                    
                 }
@@ -257,7 +261,7 @@ namespace HamBamWeb
             {
                 for (int column = 0; column < numColumns; column++)
                 {
-                    if (matrix[row, column] != '\0')
+                    if (matrix[row, column] != '_')
                     {
                         plaintext.Append(matrix[row, column]);
                     }
